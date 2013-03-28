@@ -1,0 +1,48 @@
+/*jaune fcd106*/
+/*bleu 43cdfc*/
+/*rouge ea080a*/
+
+body{background-color:#1f1f1f;color:white;}
+#container{width:1000px;margin:0 auto;background-color:#323232}
+#siteHeader{background-color:#43cdfc;}
+#content{/*background-color:#221b01;*/float:left;width:80%;}
+#siteFooter{background-color:#ea080a;}
+nav ol li a{display:block;float:left;height:25;margin:5px 0 5px 10px;}
+nav ol li:nth-child(1) a{margin-left:0;}
+.bgWhite{background-color:white;color:black;}
+#sidebar{border:1px solid #fcd106;width:19%;}
+/*
+.layerMask{position:absolute;top:0;left:0;height:100%;width:100%;background-color:rgba(0, 0, 0, 0.5);}
+.layerMask:before{content: '';display:inline-block;height: 100%;vertical-align: middle;margin-right: -0.25em;}
+.layer{z-index:100;background-color:white;position:relative;margin:0 auto;border:1px solid black;color:black;width:100px;display: inline-block;
+  vertical-align: middle;
+-moz-box-shadow: 0px 0px 10px 5px #656565;
+-webkit-box-shadow: 0px 0px 10px 5px #656565;
+-o-box-shadow: 0px 0px 10px 5px #656565;
+box-shadow: 0px 0px 10px 5px #656565;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=10);
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+border-radius: 8px;}
+*/
+.layerMask {text-align:center;background: rgba(0, 0, 0, 0.5);position:absolute;top:0;left:0;width:100%;height:100%;}
+ 
+.layerMask:before{content:'';display:inline-block;height:100%;vertical-align:middle;margin-right:0;}
+.layer{margin:0 auto;display:inline-block;vertical-align:middle;width:300px;padding:10px 15px;border:#a0a0a0 solid 1px;color:black;background-color:white;
+-moz-box-shadow: 0px 0px 10px 5px #656565;
+-webkit-box-shadow: 0px 0px 10px 5px #656565;
+-o-box-shadow: 0px 0px 10px 5px #656565;
+box-shadow: 0px 0px 10px 5px #656565;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=NaN, Strength=10);
+-moz-border-radius: 8px;
+-webkit-border-radius: 8px;
+border-radius: 8px;}
+
+.contentList{}
+.contentList article{float:left;width:200px;}
+.contentList article figure{position:relative;}
+.contentList article figure img{width:200px;height:200px;}
+.contentList article figure figcaption{position:absolute;bottom:0;left:0;width:100%;background: rgba(0, 0, 0, 0.5);color:#c8c3c3;}
+.contentList article figure figcaption .captionWrapper{padding:5px;}
+.contentList article figure figcaption h2 a{text-decoration:none;color:#c8c3c3;}
+.contentList article figure figcaption h2 a:hover{text-decoration:underline;}

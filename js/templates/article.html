@@ -1,0 +1,9 @@
+	<article>
+		<hgroup>
+			<h2><a href="#article/<%= encodeURIComponent(model.get('title')) %>"><%= model.get('title') %></a></h2>
+			<h3><%= model.get('date') %></h3>
+		</hgroup>
+		<div class="itemContent">
+			<%= model.get('content') %>
+		</div>
+	</article>
