@@ -4,7 +4,7 @@ define(['underscore','jquery','backbone','Mpage'],function(_,$,Backbone,Mpage){
 		getPageData : function(suffix){
 			var self = this;
 			$.ajax({
-				url: '/js/ressources/page_'+suffix+'.js',
+				url: './js/ressources/page_'+suffix+'.js',
 				dataType: "json"
 			}).done(function(datas){
 				_.each(datas,function(data,k){
