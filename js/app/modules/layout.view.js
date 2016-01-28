@@ -3,12 +3,11 @@ define([
 	],function(template){
 	Vlayout = Backbone.View.extend({
 		events:{
-			"click #sidebar a" : "openLayer",
-			"click .layerMask" : "closeLayer"
 		},
 		initialize: function(){
     		$(this.el).removeData().unbind();
-			this.template = template;
+			var self = this;
+			this.template = _.template(template);
 			this.render();
 			this.collection = new Celement();
 			this.collection.on('add',function(model){
@@ -24,20 +23,27 @@ define([
 					break;
 				}
 			})
+
+			$('#sidebar').find('a').on('click',function(e){
+				self.openLayer(e);
+			})
 		},
 		render: function(){
 			var self = this;
-			$(self.el).html(_.template(this.template));
+			$(self.el).html(self.template);
 			return this;
 		},
 		openLayer : function(e){
+			var self = this;
 			e.preventDefault();
 			$('#container').append('<div class="layerMask"><div class="layer">Layer</div></div>')
-
+			$('.layerMask').on('click',function(e){
+				self.closeLayer(e);
+			})
 		},
 		closeLayer : function(e){
 			e.preventDefault();
-			$('#container .layerMask').remove();
+			$('#container .layerMask').unbind().remove();
 		}
 	});
 	return Vlayout;

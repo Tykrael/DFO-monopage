@@ -7,7 +7,7 @@ define([
 		initialize: function(idata){
 			var self = this;
     		$(this.el).removeData().unbind();
-			this.template = template;
+			this.template = _.template(template);
 
 			this.collection = pages = pages || new Cpage();
 			this.collection.getPageData(idata.query);
@@ -20,7 +20,8 @@ define([
 		},
 		render: function(){
 			var self = this;
-			$(self.el).html(_.template(this.template,{model:this.model}));
+			var cTpl = self.template({model:self.model});
+			$(self.el).html(cTpl);
 			return this;
 		}
 	});

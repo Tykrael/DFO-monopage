@@ -10,6 +10,7 @@ define(['underscore','jquery','backbone','Melement'],function(_,$,Backbone){
 				url: appConfig.ws.elements,
 				dataType: "json"
 			}).done(function(datas){
+				//console.log('element')
 				//console.log(datas)
 				_.each(datas,function(data,k){
 					//console.log(data,k)
@@ -20,8 +21,10 @@ define(['underscore','jquery','backbone','Melement'],function(_,$,Backbone){
 						content 	: 	data.content,
 						parent 		: 	data.parent
 					});
+					//console.log(item)
 					self.add(item);
 				});
+				//console.log('element done')
 			}).fail(function(){
 				console.log('erreur lors de la recuperation des données "Celement"');
 			})

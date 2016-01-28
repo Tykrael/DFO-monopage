@@ -7,10 +7,7 @@ define([
 		initialize: function(){
     		$(this.el).removeData().unbind();
 			this.template = template;
-			var poeut = contents || 'pouet'
-			//console.log(poeut)
 			this.collection = contents = contents || new Ccontents();
-			//this.collection = new Chome();
 			this.render();
 			if(!this.collection.length){
 				this.collection.on('add',function(model){
@@ -26,7 +23,6 @@ define([
 					item = new VitemHome({model:model});
 				})
 			}
-			//$(this.parent).prepend(_.template($(this.template).html(),this.model.attributes));
 			return this;
 		}
 	});

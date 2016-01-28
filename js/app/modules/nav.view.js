@@ -7,7 +7,7 @@ define([
 		initialize: function(){
     		$(this.el).removeData().unbind();
 			var self = this;
-			this.template = template;
+			this.template = _.template(template);
 			this.collection = new Cnav();
 			_.each(this.model.attributes.content,function(data,k){
 				self.collection.addNavItem(data)
@@ -16,9 +16,12 @@ define([
 		},
 		render: function(){
 			var self = this;
-			$(self.el).append(_.template(this.template,{model:this.model}));
+			var cTpl = self.template({model:self.model});
+			$(self.el).append(cTpl);
 			_.each(this.collection.models,function(data,k){
-				$('nav ol').append(_.template(templateItem,{model:data}))
+				var itemTpl = _.template(templateItem);
+				var cItemTpl = itemTpl({model:data});
+				$('nav ol').append(cItemTpl);
 			})
 			return this;
 		}

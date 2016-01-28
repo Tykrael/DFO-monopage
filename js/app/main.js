@@ -3,7 +3,7 @@ requirejs.config({
 	paths: {
 		text 			: './js/libs/require/text',
 		jquery 			: './js/libs/jquery-1.9.0.min',
-		underscore 		: './js/libs/lo-dash-min',
+		underscore 		: './js/libs/underscore-min',
 		backbone 		: './js/libs/backbone-min',
 		config 			: './js/app/config',
 		templates 		: './js/templates',

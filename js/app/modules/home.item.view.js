@@ -2,12 +2,13 @@ define(['underscore','jquery','backbone','text!templates/home.item.html'],functi
 	VitemHome = Backbone.View.extend({
 		events:{},
 		initialize: function(){
-			this.template = template;
+			this.template =  _.template(template);
 			this.render();
 		},
 		render: function(){
 			var self = this;
-			$('.contentList').append(_.template(this.template,{model:this.model}));
+			var cTpl = self.template({model: self.model});
+			$('.contentList').append(cTpl);
 			return this;
 		}
 	});

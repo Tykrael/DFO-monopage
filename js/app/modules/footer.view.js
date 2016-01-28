@@ -6,12 +6,13 @@ define([
 		events:{},
 		initialize: function(){
     		$(this.el).removeData().unbind();
-    		this.template = template;
+    		this.template = _.template(template);
     		this.render();
     	},
 		render: function(){
 			var self = this;
-			$(self.el).html(_.template(this.template,{model:this.model}));
+			var cTpl = self.template({model:this.model});
+			$(self.el).html(cTpl);
 			return this;
 		}
 	});
