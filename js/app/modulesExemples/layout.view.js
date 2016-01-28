@@ -1,7 +1,5 @@
-define([
-	'text!templates/layout.html','underscore','jquery','backbone','Melement','Celement','Vheader','Vfooter','Vnav'
-	],function(template){
-	Vlayout = Backbone.View.extend({
+define(['text!templates/exemples/layout.html'],function(template){
+	VlayoutEx = Backbone.View.extend({
 		events:{
 		},
 		initialize: function(){
@@ -9,17 +7,17 @@ define([
 			var self = this;
 			this.template = _.template(template);
 			this.render();
-			this.collection = new Celement();
+			this.collection = new CelementEx();
 			this.collection.on('add',function(model){
 				switch(model.attributes.type){
 					case "header":
-						v_header = new Vheader({el:model.attributes.parent,model:model});
+						v_header = new VheaderEx({el:model.attributes.parent,model:model});
 					break;
 					case "footer":
-						v_footer = new Vfooter({el:model.attributes.parent,model:model});
+						v_footer = new VfooterEx({el:model.attributes.parent,model:model});
 					break;
 					case "nav":
-						v_nav = new Vnav({el:model.attributes.parent,model:model});
+						v_nav = new VnavEx({el:model.attributes.parent,model:model});
 					break;
 				}
 			})
@@ -46,5 +44,5 @@ define([
 			$('#container .layerMask').unbind().remove();
 		}
 	});
-	return Vlayout;
+	return VlayoutEx;
 });

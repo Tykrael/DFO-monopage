@@ -1,6 +1,6 @@
-define(['underscore','jquery','backbone','Melement'],function(_,$,Backbone){
-	Celement = Backbone.Collection.extend({
-		model : Melement,
+define(['underscore','jquery','backbone','MelementEx'],function(_,$,Backbone){
+	CelementEx = Backbone.Collection.extend({
+		model : MelementEx,
 		initialize : function(){
 			this.loadDatas();
 		},
@@ -14,7 +14,7 @@ define(['underscore','jquery','backbone','Melement'],function(_,$,Backbone){
 				//console.log(datas)
 				_.each(datas,function(data,k){
 					//console.log(data,k)
-					var item = new Melement();
+					var item = new MelementEx();
 					item.set({
 						type 		: 	k,
 						title 		: 	data.title,
@@ -30,5 +30,5 @@ define(['underscore','jquery','backbone','Melement'],function(_,$,Backbone){
 			})
 		}
 	});
-	return Celement;
+	return CelementEx;
 });

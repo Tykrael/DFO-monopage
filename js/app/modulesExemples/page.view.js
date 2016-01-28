@@ -1,8 +1,5 @@
-define([
-	'jquery',
-	'text!templates/page.html',
-	],function($,template){
-	Vpage = Backbone.View.extend({
+define(['text!templates/exemples/page.html'],function(template){
+	VpageEx = Backbone.View.extend({
 		events:{},
 		initialize: function(idata){
 			var self = this;
@@ -25,5 +22,5 @@ define([
 			return this;
 		}
 	});
-	return Vpage;
+	return VpageEx;
 });

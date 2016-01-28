@@ -1,8 +1,8 @@
 define(['underscore','jquery','backbone'],function(_,$,Backbone){
-	Marticle = Backbone.Model.extend({
+	MpageEx = Backbone.Model.extend({
 		defaults : {
 		}
 	});
-	return Marticle;
+	return MpageEx;
 
 });

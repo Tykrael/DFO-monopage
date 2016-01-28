@@ -1,8 +1,5 @@
-define([
-	'jquery',
-	'text!templates/header.html',
-	],function($,template){
-	Vheader = Backbone.View.extend({
+define(['text!templates/exemples/header.html'],function(template){
+	VheaderEx = Backbone.View.extend({
 		events:{},
 		initialize: function(){
     		$(this.el).removeData().unbind();
@@ -16,5 +13,5 @@ define([
 			return this;
 		}
 	});
-	return Vheader;
+	return VheaderEx;
 });

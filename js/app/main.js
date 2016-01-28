@@ -5,28 +5,29 @@ requirejs.config({
 		jquery 			: './js/libs/jquery-1.9.0.min',
 		underscore 		: './js/libs/underscore-min',
 		backbone 		: './js/libs/backbone-min',
+		highcharts 		: './js/libs/highcharts',
 		config 			: './js/app/config',
 		templates 		: './js/templates',
-		modules 		: './js/modules',
+		modules 		: './js/modulesExemples',
 
-		Vlayout			:  './js/app/modules/layout.view',
-		Vheader			:  './js/app/modules/header.view',
-		Vfooter			:  './js/app/modules/footer.view',
-		Vnav			:  './js/app/modules/nav.view',
-		VitemHome		:  './js/app/modules/home.item.view',
-		Vhome			:  './js/app/modules/home.view',
-		Vpage			:  './js/app/modules/page.view',
-		Varticle		:  './js/app/modules/article.view',
+		VlayoutEx		:  './js/app/modulesExemples/layout.view',
+		VheaderEx		:  './js/app/modulesExemples/header.view',
+		VfooterEx		:  './js/app/modulesExemples/footer.view',
+		VnavEx			:  './js/app/modulesExemples/nav.view',
+		VitemHomeEx		:  './js/app/modulesExemples/home.item.view',
+		VhomeEx			:  './js/app/modulesExemples/home.view',
+		VpageEx			:  './js/app/modulesExemples/page.view',
+		VarticleEx		:  './js/app/modulesExemples/article.view',
 
-		Mcontents		:  './js/app/modules/contents.model',
-		Melement		:  './js/app/modules/element.model',
-		Mnav			:  './js/app/modules/nav.model',
-		Mpage			:  './js/app/modules/page.model',
+		McontentsEx		:  './js/app/modulesExemples/contents.model',
+		MelementEx		:  './js/app/modulesExemples/element.model',
+		MnavEx			:  './js/app/modulesExemples/nav.model',
+		MpageEx			:  './js/app/modulesExemples/page.model',
 
-		Ccontents		:  './js/app/modules/contents.collection',
-		Celement		:  './js/app/modules/element.collection',
-		Cnav			:  './js/app/modules/nav.collection',
-		Cpage			:  './js/app/modules/page.collection'
+		CcontentsEx		:  './js/app/modulesExemples/contents.collection',
+		CelementEx		:  './js/app/modulesExemples/element.collection',
+		CnavEx			:  './js/app/modulesExemples/nav.collection',
+		CpageEx			:  './js/app/modulesExemples/page.collection'
 	},
 	deps : ['config', 'text'],
 	shim: {
@@ -36,37 +37,37 @@ requirejs.config({
 			//Once loaded, use the global 'Backbone' as the module value.
 			exports: 'Backbone'
 		},
-		Ccontents: {
-			deps: ['underscore', 'jquery', 'backbone', 'Mcontents'],
-			exports: 'Ccontents'
+		CcontentsEx: {
+			deps: ['underscore', 'jquery', 'backbone', 'McontentsEx'],
+			exports: 'CcontentsEx'
 		},
-		Vlayout: {
-			deps: ['underscore', 'jquery', 'backbone', 'Melement', 'Celement', 'Vheader', 'Vfooter', 'Vnav'],
-			exports: 'Vlayout'
+		VlayoutEx: {
+			deps: ['underscore', 'jquery', 'backbone', 'MelementEx', 'CelementEx', 'VheaderEx', 'VfooterEx', 'VnavEx'],
+			exports: 'VlayoutEx'
 		},
-		Vheader: {
+		VheaderEx: {
 			deps: ['underscore', 'jquery', 'backbone'],
-			exports: 'Vheader'
+			exports: 'VheaderEx'
 		},
-		Vfooter: {
+		VfooterEx: {
 			deps: ['underscore', 'jquery', 'backbone'],
-			exports: 'Vfooter'
+			exports: 'VfooterEx'
 		},
-		Vnav: {
-			deps: ['underscore', 'jquery', 'backbone', 'Mnav', 'Cnav'],
-			exports: 'Vnav'
+		VnavEx: {
+			deps: ['underscore', 'jquery', 'backbone', 'MnavEx', 'CnavEx'],
+			exports: 'VnavEx'
 		},
-		Vhome: {
-			deps: ['underscore', 'jquery', 'backbone', 'Mcontents', 'Ccontents', 'VitemHome'],
-			exports: 'Vhome'
+		VhomeEx: {
+			deps: ['underscore', 'jquery', 'backbone', 'McontentsEx', 'CcontentsEx', 'VitemHomeEx'],
+			exports: 'VhomeEx'
 		},
-		Vpage: {
-			deps: ['underscore', 'jquery', 'backbone', 'Mpage', 'Cpage'],
-			exports: 'Vpage'
+		VpageEx: {
+			deps: ['underscore', 'jquery', 'backbone', 'MpageEx', 'CpageEx'],
+			exports: 'VpageEx'
 		},
-		Varticle: {
-			deps: ['underscore', 'jquery', 'backbone', 'Mcontents', 'Ccontents'],
-			exports: 'Varticle'
+		VarticleEx: {
+			deps: ['underscore', 'jquery', 'backbone', 'McontentsEx', 'CcontentsEx'],
+			exports: 'VarticleEx'
 		}
 	}
 });
@@ -76,30 +77,38 @@ requirejs([
 	"underscore",
 	"backbone",
 	'text!templates/404.html',
-	"Vlayout",
-	"Vhome",
-	"Vpage",
-	"Varticle"], function ($, _, Backbone, template404) {
+	"VlayoutEx",
+	"VhomeEx",
+	"VpageEx",
+	"VarticleEx"], function ($, _, Backbone, template404) {
 	var appLauncher = Backbone.Router.extend({
 		routes : {
 			'': 'home',
 			'home': 'home',
+			'user-management': 'userManagement',
+			/*
 			'article/:query': 'article',
 			'page/:query': 'page',
+			*/
 			'*path': 'hell'
 		},
 		initialize: function () {
-			new Vlayout({el: "body"});
+			new VlayoutEx({el: "body"});
 		},
 		home: function () {
-			new Vhome({el: "#content"});
+			new VhomeEx({el: "#content"});
 		},
+		userManagement:function(){
+
+		},
+		/*
 		page: function (query) {
-			new Vpage({el: "#content", query: decodeURIComponent(query)});
+			new VpageEx({el: "#content", query: decodeURIComponent(query)});
 		},
 		article: function (query) {
-			new Varticle({el: "#content", query: decodeURIComponent(query)});
+			new VarticleEx({el: "#content", query: decodeURIComponent(query)});
 		},
+		*/
 		hell: function (query) {
 			$("#content").html(_.template(template404));
 		}

@@ -1,5 +1,5 @@
-define(['underscore','jquery','backbone','text!templates/home.item.html'],function(_,$,Backbone,template){
-	VitemHome = Backbone.View.extend({
+define(['underscore','jquery','backbone','text!templates/exemples/home.item.html'],function(_,$,Backbone,template){
+	VitemHomeEx = Backbone.View.extend({
 		events:{},
 		initialize: function(){
 			this.template =  _.template(template);
@@ -12,5 +12,5 @@ define(['underscore','jquery','backbone','text!templates/home.item.html'],functi
 			return this;
 		}
 	});
-	return VitemHome;
+	return VitemHomeEx;
 });

@@ -1,8 +1,5 @@
-define([
-	'jquery',
-	'text!templates/article.html',
-	],function($,template){
-	Varticle = Backbone.View.extend({
+define(['text!templates/exemples/article.html'],function(template){
+	VarticleEx = Backbone.View.extend({
 		events:{},
 		itemTitle : undefined,
 		initialize: function(idata){
@@ -30,5 +27,5 @@ define([
 			return this;
 		}
 	});
-	return Varticle;
+	return VarticleEx;
 });

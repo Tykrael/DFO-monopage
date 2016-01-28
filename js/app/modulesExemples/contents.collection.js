@@ -1,6 +1,6 @@
 define(['underscore','jquery','backbone'],function(_,$,Backbone){
-	Ccontents = Backbone.Collection.extend({
-		model : Mcontents,
+	CcontentsEx = Backbone.Collection.extend({
+		model : McontentsEx,
 		initialize : function(){
 			this.loadDatas();
 		},
@@ -11,7 +11,7 @@ define(['underscore','jquery','backbone'],function(_,$,Backbone){
 				dataType: "json"
 			}).done(function(datas){
 				_.each(datas,function(data,k){
-					var item = new Mcontents();
+					var item = new McontentsEx();
 					item.set({
 						id 		: 	k,
 						title 	: 	data.title,
@@ -27,5 +27,5 @@ define(['underscore','jquery','backbone'],function(_,$,Backbone){
 			})
 		}
 	});
-	return Ccontents;
+	return CcontentsEx;
 });

@@ -1,14 +1,11 @@
-define([
-	'text!templates/nav.html',
-	'text!templates/nav.item.html','underscore','jquery','backbone','Mnav','Cnav'
-	],function(template,templateItem){
-	Vnav = Backbone.View.extend({
+define(['text!templates/exemples/nav.html','text!templates/exemples/nav.item.html'],function(template,templateItem){
+	VnavEx = Backbone.View.extend({
 		events:{},
 		initialize: function(){
     		$(this.el).removeData().unbind();
 			var self = this;
 			this.template = _.template(template);
-			this.collection = new Cnav();
+			this.collection = new CnavEx();
 			_.each(this.model.attributes.content,function(data,k){
 				self.collection.addNavItem(data)
 			})
@@ -26,5 +23,5 @@ define([
 			return this;
 		}
 	});
-	return Vnav;
+	return VnavEx;
 });

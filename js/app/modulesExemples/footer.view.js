@@ -1,8 +1,5 @@
-define([
-	'jquery',
-	'text!templates/footer.html',
-	],function($,template){
-	Vfooter = Backbone.View.extend({
+define(['text!templates/exemples/footer.html'],function(template){
+	VfooterEx = Backbone.View.extend({
 		events:{},
 		initialize: function(){
     		$(this.el).removeData().unbind();
@@ -16,5 +13,5 @@ define([
 			return this;
 		}
 	});
-	return Vfooter;
+	return VfooterEx;
 });

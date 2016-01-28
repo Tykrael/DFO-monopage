@@ -1,6 +1,6 @@
-define(['underscore','jquery','backbone','Mpage'],function(_,$,Backbone,Mpage){
-	Cpage = Backbone.Collection.extend({
-		model : Mpage,
+define(['underscore','jquery','backbone','MpageEx'],function(_,$,Backbone,MpageEx){
+	CpageEx = Backbone.Collection.extend({
+		model : MpageEx,
 		getPageData : function(suffix){
 			var self = this;
 			$.ajax({
@@ -22,5 +22,5 @@ define(['underscore','jquery','backbone','Mpage'],function(_,$,Backbone,Mpage){
 		}
 
 	});
-	return Cpage;
+	return CpageEx;
 });

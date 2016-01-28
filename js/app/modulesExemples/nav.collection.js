@@ -1,5 +1,5 @@
 define(['underscore','jquery','backbone'],function(_,$,Backbone){
-	Cnav = Backbone.Collection.extend({
+	CnavEx = Backbone.Collection.extend({
 		addNavItem : function(model){
 			this.add(model);
 		},
@@ -7,5 +7,5 @@ define(['underscore','jquery','backbone'],function(_,$,Backbone){
 			return item.get("position");
 		}
 	});
-	return Cnav;
+	return CnavEx;
 });
